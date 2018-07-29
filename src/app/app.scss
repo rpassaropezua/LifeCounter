@@ -14,3 +14,19 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.matchPlayerView {
+  height:auto;
+  padding-bottom:2em;
+  padding-top:2em;
+  border-bottom-left-radius:.4em;
+  border-bottom-right-radius:.4em;
+}
+
+.center {
+  text-align:center;
+}
+
+.sideways {
+  transform: rotate(180deg);
+}

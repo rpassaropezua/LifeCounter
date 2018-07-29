@@ -16,7 +16,7 @@ import { Storage } from '@ionic/storage';
 })
 export class CreateProfilePage {
   public profile = { "Name": "", "Theme": "", "GamesWon":0, "GamesPlayed":0};
-  public themes = ["primary", "secondary", "danger", "light", "dark"];
+  public themes = ["primary", "light", "dark"];
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
 

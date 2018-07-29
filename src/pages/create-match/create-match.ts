@@ -28,8 +28,8 @@ export class CreateMatchPage {
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateMatchPage');
+  ionViewDidLeave() {
+    this.matchData = { "Players": [], "StartingLife": 40 };
   }
 
   selectProfile(profile) {

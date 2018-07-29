@@ -14,5 +14,30 @@
 
 
 <ion-content padding>
+  <div class="row sideways">
+    <ion-item *ngFor="let player of topRowPlayers" class="matchPlayerView" color="{{player.Life > 0 ? player.Theme : 'disabled'}}" no-lines [style.width.%]="topWidth">
+      <h2>{{player.Name}}</h2>
 
+      <div item-content *ngIf="player.Life > 0">
+        <h3><b>Life: {{player.Life}}</b></h3>
+        <button block ion-button color="secondary" (click)="addOneLife(player)" (press)="addOneLife(player)"><ion-icon large name="add"></ion-icon></button>
+        <button block ion-button color="danger" (click)="removeOneLife(player)" (press)="removeOneLife(player)"><ion-icon large name="remove"></ion-icon></button>
+      </div>
+    </ion-item>
+  </div>
+  <div class="row">
+    <ion-item *ngFor="let player of bottomRowPlayers" class="matchPlayerView" color="{{player.Life > 0 ? player.Theme : 'disabled'}}" no-lines [style.width.%]="bottomWidth">
+      <h2>{{player.Name}}</h2>
+
+      <div item-content *ngIf="player.Life > 0">
+        <h3><b>Life: {{player.Life}}</b></h3>
+        <button block ion-button color="secondary" (click)="addOneLife(player)" (press)="addOneLife(player)"><ion-icon large name="add"></ion-icon></button>
+        <button block ion-button color="danger" (click)="removeOneLife(player)" (press)="removeOneLife(player)"><ion-icon large name="remove"></ion-icon></button>
+      </div>
+    </ion-item>
+  </div>
+  <div *ngFor="let player of matchData.Players" class="center">
+    
+  </div>
+  
 </ion-content>
