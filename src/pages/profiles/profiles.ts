@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CreateProfilePage } from '../create-profile/create-profile';
+import { Storage } from '@ionic/storage';
+
 
 /**
  * Generated class for the ProfilesPage page.
@@ -15,20 +17,31 @@ import { CreateProfilePage } from '../create-profile/create-profile';
   templateUrl: 'profiles.html',
 })
 export class ProfilesPage {
-  public profiles: any[];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.loadProfileList();
+  public profiles: any[] = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+    this.storage.ready().then(ready => {
+      this.loadProfileList();
+    });
+    
+  }
+
+  ionViewDidLoad() {
+    this.storage.ready().then(ready => {
+      this.loadProfileList();
+    });
   }
 
   ionViewWillEnter() {
-    this.loadProfileList();
+    this.storage.ready().then(ready => {
+      this.loadProfileList();
+    });
   }
 
   loadProfileList() {
-    if (localStorage.getItem("profiles")) {
-      this.profiles = JSON.parse(localStorage.getItem("profiles"));
-      console.log(this.profiles);
-    }
+    this.storage.get('profiles').then(profiles => {
+      this.profiles = profiles;
+    })
+    
   }
 
   goToAddNewProfile() {
@@ -38,8 +51,7 @@ export class ProfilesPage {
   deleteProfile(profile) {
     var index = this.profiles.indexOf(profile);
     this.profiles.splice(index, 1);
-    localStorage.setItem("profiles", JSON.stringify(this.profiles));
-    console.log(profile);
+    this.storage.set('profiles', this.profiles);
   }
 
 }

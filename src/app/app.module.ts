@@ -5,27 +5,35 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { IonicStorageModule } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { ProfilesPage } from '../pages/profiles/profiles';
 import { CreateProfilePage } from '../pages/create-profile/create-profile';
+import { CreateMatchPage } from '../pages/create-match/create-match';
+import { MatchPage } from '../pages/match/match';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ProfilesPage,
-    CreateProfilePage
+    CreateProfilePage,
+    CreateMatchPage,
+    MatchPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ProfilesPage,
-    CreateProfilePage
+    CreateProfilePage,
+    CreateMatchPage,
+    MatchPage
   ],
   providers: [
     StatusBar,
