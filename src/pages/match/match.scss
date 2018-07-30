@@ -1,3 +1,55 @@
 page-match {
+  .sideways {
+    transform: rotate(180deg);
+  }
 
+  .centerHomeButton {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 9999;
+  }
+
+  .translucentBtn {
+    opacity: .1;
+    width: 30%;
+    height: 100%;
+    margin: 0;
+    background-color: white;
+    color: crimson;
+  }
+
+  .matchPlayerView {
+    height: 100% !important;
+    border-bottom-left-radius: .4em;
+    border-bottom-right-radius: .4em;
+    border-top: 5px solid yellow !important;
+  }
+
+  .playerInfo {
+    margin: auto;
+  }
+
+  .label {
+    display: inherit;
+    height: 100%;
+    margin: 0;
+  }
+
+  .item-md {
+    padding: 0;
+  }
+
+  .item-md.item-block .item-inner {
+    padding: 0;
+  }
+
+  .item-inner {
+    padding-right: 0;
+  }
+
+  .row {
+    border-top:2px solid darkslategrey;
+  }
 }

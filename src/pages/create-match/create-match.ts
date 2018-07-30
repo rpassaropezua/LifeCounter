@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { MatchPage } from '../match/match';
 import { AlertController } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 /**
  * Generated class for the CreateMatchPage page.
@@ -19,10 +20,15 @@ import { AlertController } from 'ionic-angular';
 export class CreateMatchPage {
   public profiles: any[] = [];
   public matchData = { "Players": [], "StartingLife": 40 };
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController
+    , public navParams: NavParams
+    , private storage: Storage
+    , private alertCtrl: AlertController
+    , private screenOrientation: ScreenOrientation) {
   }
 
   ionViewWillEnter() {
+    this.screenOrientation.unlock();
     this.storage.get('profiles').then(profiles => {
       this.profiles = profiles;
     })
@@ -51,10 +57,16 @@ export class CreateMatchPage {
   }
 
   goToMatchPage() {
-    if (this.matchData.Players.length >= 2) {
+    if (this.matchData.Players.length >= 2 && this.matchData.Players.length <= 8) {
       this.storage.set("currentMatch", this.matchData).then(ready => {
         this.navCtrl.push(MatchPage);
       });
+    } else if (this.matchData.Players.length > 8) {
+      this.alertCtrl.create({
+        title: 'Too many players',
+        subTitle: 'More than eight players not yet supported',
+        buttons: ['Dismiss']
+      }).present();
     } else {
       this.alertCtrl.create({
         title: 'Not enough players',

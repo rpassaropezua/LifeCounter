@@ -13,24 +13,24 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="background">
     <ion-item-divider>Choose Players <ion-icon item-end name="person"></ion-icon></ion-item-divider>
     <ion-list>
-      <ion-item item-outline color="{{profile.Theme}}" *ngFor="let profile of profiles">
+      <ion-item class="customItem" color="{{profile.Theme}}" no-lines *ngFor="let profile of profiles">
         <ion-label>{{profile.Name}}</ion-label>
         <ion-checkbox (click)="selectProfile(profile)"></ion-checkbox>
       </ion-item>
-    </ion-list>
     <ion-item-divider>Choose Game Mode <ion-icon item-end name="game-controller-a"></ion-icon></ion-item-divider>
     <ion-list radio-group [(ngModel)]="matchData.StartingLife">
-      <ion-item>
+      <ion-item class="customItem" no-lines>
         <ion-label>Commander (40)</ion-label>
         <ion-radio value=40 checked></ion-radio>
       </ion-item>
-      <ion-item>
+      <ion-item class="customItem">
         <ion-label>Regular (20)</ion-label>
         <ion-radio value=20></ion-radio>
       </ion-item>
     </ion-list>
+      </ion-list>
     <button ion-button block (click)="goToMatchPage()">Start Match</button>
 </ion-content>

@@ -2,8 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\pages",
+    "\\src\\pages\\create-match",
+    "\\src\\pages\\create-profile",
+    "\\src\\pages\\home",
+    "\\src\\pages\\match",
+    "\\src\\pages\\profiles",
+    "\\src\\theme"
   ],
-  "SelectedNode": "\\package-lock.json",
+  "SelectedNode": "\\src\\pages\\create-match\\create-match.html",
   "PreviewInSolutionExplorer": false
 }

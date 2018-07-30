@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { StatusBar } from '@ionic-native/status-bar';
 
 /**
  * Generated class for the MatchPage page.
@@ -20,10 +22,16 @@ export class MatchPage {
   public bottomRowPlayers: any[] = [];
   public topWidth;
   public bottomWidth;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(public navCtrl: NavController
+    , public navParams: NavParams
+    , private storage: Storage
+    , private screenOrientation: ScreenOrientation
+    , private statusBar: StatusBar) {
   }
 
   ionViewWillEnter() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    this.statusBar.hide();
     this.storage.get('currentMatch').then(currentMatch => {
       
       currentMatch.Players.forEach(player => {
@@ -64,6 +72,10 @@ export class MatchPage {
   addTenLife(player) {
     player.Life += 10;
     console.log("press");
+  }
+
+  goBack() {
+    this.navCtrl.pop();
   }
 
 }

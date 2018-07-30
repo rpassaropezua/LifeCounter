@@ -15,18 +15,27 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.matchPlayerView {
-  height:auto;
-  padding-bottom:2em;
-  padding-top:2em;
-  border-bottom-left-radius:.4em;
-  border-bottom-right-radius:.4em;
-}
 
 .center {
   text-align:center;
 }
 
-.sideways {
-  transform: rotate(180deg);
+.item-divider {
+  background-color: lightslategrey;
+  color: black;
+  margin-bottom:.4em;
+  border:none;
 }
+
+.customItem {
+  box-shadow: black 4px 4px;
+  margin-bottom: .4em;
+  border-radius: 3px;
+}
+
+.background {
+  background-color:darkslategrey;
+}
+
+
+
