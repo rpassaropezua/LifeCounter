@@ -58,6 +58,16 @@ export class CreateMatchPage {
 
   goToMatchPage() {
     if (this.matchData.Players.length >= 2 && this.matchData.Players.length <= 8) {
+      this.matchData.Players.forEach(p => {
+        p.Poison = 0;
+        p.Opponents = [];
+        this.matchData.Players.forEach(p2 => {
+          if (p2.Name != p.Name) {
+            p.Opponents.push({ "Name": p2.Name, "CommanderDamage": 0 });
+          }
+        })
+      })
+      console.log(this.matchData);
       this.storage.set("currentMatch", this.matchData).then(ready => {
         this.navCtrl.push(MatchPage);
       });

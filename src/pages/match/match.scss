@@ -1,9 +1,18 @@
 page-match {
+
+  .background {
+    background-color:darkred;
+  }
+
+  .row {
+    border-top:.6em groove red;
+  }
+
   .sideways {
     transform: rotate(180deg);
   }
 
-  .centerHomeButton {
+  .centerHomeDiv {
     display: block;
     position: absolute;
     left: 50%;
@@ -11,20 +20,27 @@ page-match {
     z-index: 9999;
   }
 
+  #matchCenterHomeButton {
+    background-color:gold;
+    color:black;
+    border-radius:5em;
+    border:.2em groove gold;
+  }
+
   .translucentBtn {
-    opacity: .1;
     width: 30%;
     height: 100%;
     margin: 0;
-    background-color: white;
-    color: crimson;
+    background-color:inherit;
+    //font-size:3em;
+  }
+
+  .translucentBtn:hover {
+    background-color:inherit;
   }
 
   .matchPlayerView {
     height: 100% !important;
-    border-bottom-left-radius: .4em;
-    border-bottom-right-radius: .4em;
-    border-top: 5px solid yellow !important;
   }
 
   .playerInfo {
@@ -47,9 +63,5 @@ page-match {
 
   .item-inner {
     padding-right: 0;
-  }
-
-  .row {
-    border-top:2px solid darkslategrey;
   }
 }

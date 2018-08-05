@@ -5,51 +5,29 @@
   Ionic pages and navigation.
 -->
 
-<ion-content padding class="background" style="padding-top:0px !important">
+<ion-content class="background" style="padding-top:0px !important">
 
   <div class="row sideways" style="height:50%">
-    <ion-item *ngFor="let player of topRowPlayers" color="{{player.Theme}}" no-lines [style.width.%]="topWidth">
-      <button ion-button style="float:right" large inline-block class="translucentBtn" (click)="addOneLife(player)"><ion-icon name="add"></ion-icon></button>
+    <ion-item *ngFor="let player of topRowPlayers" (click)="openPlayerMenu(player); $event.stopPropagation()" color="{{player.Life > 0? player.Theme : 'disabled'}}" no-lines [style.width.%]="topWidth">
+      <button ion-button style="float:right" large inline-block class="translucentBtn" (click)="addOneLife(player); $event.stopPropagation()" (press)="addXLife(player); $event.stopPropagation()">+</button>
       <div class="center playerInfo">
-        <h3><b>{{player.Name}}</b></h3>
-        <h4><b>Life: {{player.Life}}</b></h4>
+        <h5><b>{{player.Name}}</b></h5>
+        <h1><b>{{player.Life}}</b></h1>
       </div>
-      <button ion-button style="float:left" large inline-block class="translucentBtn" (click)="removeOneLife(player)"><ion-icon name="remove"></ion-icon></button>
+      <button ion-button style="float:left" large inline-block class="translucentBtn" (click)="removeOneLife(player); $event.stopPropagation()" (press)="loseXLife(player); $event.stopPropagation()">-</button>
     </ion-item>
   </div>
-  <div class="centerHomeButton">
-    <button ion-button color="light" (click)="goBack()"><ion-icon name="home"></ion-icon></button>
+  <div class="centerHomeDiv">
+    <button ion-button id="matchCenterHomeButton" (click)="goBack()"><ion-icon name="home"></ion-icon></button>
   </div>
   <div class="row" style="height:50%">
-    <ion-item *ngFor="let player of bottomRowPlayers" color="{{player.Theme}}" no-lines [style.width.%]="bottomWidth">
-      <button ion-button style="float:right" large inline-block class="translucentBtn" (click)="addOneLife(player)"><ion-icon name="add"></ion-icon></button>
+    <ion-item *ngFor="let player of bottomRowPlayers" (click)="openPlayerMenu(player); $event.stopPropagation()" color="{{player.Life > 0? player.Theme : 'disabled'}}" no-lines [style.width.%]="bottomWidth">
+      <button ion-button style="float:right" large inline-block class="translucentBtn" (click)="addOneLife(player); $event.stopPropagation()" (press)="addXLife(player); $event.stopPropagation()">+</button>
       <div class="center playerInfo">
-        <h3><b>{{player.Name}}</b></h3>
-        <h4><b>Life: {{player.Life}}</b></h4>
+        <h5><b>{{player.Name}}</b></h5>
+        <h1><b>{{player.Life}}</b></h1>
       </div>
-      <button ion-button style="float:left" large inline-block class="translucentBtn" (click)="removeOneLife(player)"><ion-icon name="remove"></ion-icon></button>
+      <button ion-button style="float:left" large inline-block class="translucentBtn" (click)="removeOneLife(player); $event.stopPropagation()" (press)="loseXLife(player); $event.stopPropagation()">-</button>
     </ion-item>
   </div>
-
-  <!--
-   <div class="row sideways" style="height:50%">
-     <ion-item *ngFor="let player of topRowPlayers" class="matchPlayerView center" color="{{player.Life > 0 ? player.Theme : 'disabled'}}" [style.width.%]="topWidth">
-       <button item-start inline-block class="translucentBtn" (click)="removeOneLife(player)" (press)="removeOneLife(player)"><ion-icon large name="remove"></ion-icon></button>
-       <h2>{{player.Name}}</h2>
-       <h3 *ngIf="player.Life > 0"><b>Life: {{player.Life}}</b></h3>
-       <button item-end inline-block class="translucentBtn" (click)="addOneLife(player)" (press)="addOneLife(player)"><ion-icon large name="add"></ion-icon></button>
-     </ion-item>
-   </div>
-
-   <div class="row" style="height:50%">
-     <ion-item *ngFor="let player of bottomRowPlayers" class="matchPlayerView center" color="{{player.Life > 0 ? player.Theme : 'disabled'}}" no-lines [style.width.%]="bottomWidth">
-       <button item-start class="translucentBtn" (click)="removeOneLife(player)" (press)="removeOneLife(player)"><ion-icon large name="remove"></ion-icon></button>
-       <h2>{{player.Name}}</h2>
-       <h3 *ngIf="player.Life > 0"><b>Life: {{player.Life}}</b></h3>
-       <button item-end class="translucentBtn" (click)="addOneLife(player)" (press)="addOneLife(player)"><ion-icon large name="add"></ion-icon></button>
-     </ion-item>
-   </div>
-  -->
-
-
 </ion-content>

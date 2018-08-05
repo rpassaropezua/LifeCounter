@@ -1,0 +1,21 @@
+<!--
+  Generated template for the ViewPlayerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+  <h1>{{player.Name}}</h1>
+  <ion-list>
+    <ion-item-divider>Commander Damage</ion-item-divider>
+    <ion-item *ngFor="let opponent of player.Opponents">
+      {{opponent.Name}}
+      <div item-end>
+        <button class="smallBtn" ion-button small color="secondary" (click)="addDamage(opponent)">+</button>
+        <div style="display:inline-block;width:3em;text-align:center"><b>{{opponent.CommanderDamage}}</b></div>
+        <button class="smallBtn" ion-button small color="danger" (click)="removeDamage(opponent)">-</button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="dismiss()">Back</button>
+</ion-content>
